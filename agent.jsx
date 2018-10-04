@@ -91,10 +91,17 @@ var AgentApp = React.createClass({
         });
 
         worker.on("ready", function(worker) {
-          self.setState({
-            log: `Ready. Agent Available: ${worker.available}`,
-            available: worker.available
-          });
+          if (worker.available) {
+            self.setState({
+              log: `Ready to accept calls.`,
+              available: true
+            });
+          } else {
+            self.setState({
+              log: `Offline. Please Toggle Avaliability`,
+              available: false
+            });
+          }
           console.log(worker.sid)             // 'WKxxx'
           console.log(worker.friendlyName)    // 'Worker 1'
           console.log(worker.activityName)    // 'Reserved'
