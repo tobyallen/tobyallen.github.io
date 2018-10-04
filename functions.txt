@@ -1,6 +1,5 @@
 Worker Token
 Generates a compatible token to connect to the TaskRouter Worker Flow
-URL: https://free-letter-3668.twil.io/workerToken
 
 exports.handler = function(context, event, callback) {
 
@@ -78,10 +77,10 @@ const capability = new TaskRouterCapability({
 };
 
 
-
+
 Agent Client Token
 Generates a compatible token to connect as a WebRTC Client.
-URL: https://free-letter-3668.twil.io/agentClientToken
+
 
 
 exports.handler = function(context, event, callback) {
@@ -121,7 +120,6 @@ exports.handler = function(context, event, callback) {
 
 Simple CC Event Handler
 Handles Events from TaskRouter.
-URL: https://free-letter-3668.twil.io/CCevents
 
 /**
  *  Processes Events from a Workflow
