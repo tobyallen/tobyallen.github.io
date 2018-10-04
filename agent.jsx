@@ -167,54 +167,56 @@ var AgentApp = React.createClass({
       .done(function(data) {
         Twilio.Device.setup(data.token);
 
-        // Configure event handlers for Twilio Device
-        Twilio.Device.disconnect(function() {
-          self.setState({
-            onPhone: false,
-            log: 'Call ended.'
-          });
-        });
-
-        Twilio.Device.ready(function() {
-          self.log = 'Connected';
-          console.log('Client Ready for Connections')
-        });
-
-        Twilio.Device.error(function (error) {
-          console.log('Twilio.Device Error: ' + error.message);
-        });
-
-        Twilio.Device.connect(function (conn) {
-          console.log('Successfully established call!');
-          self.setState({
-            muted: false,
-            onPhone: true
-          })
-
-        });
-
-        Twilio.Device.disconnect(function (conn) {
-          console.log('Call ended.');
-          self.setState({
-            muted: false,
-            onPhone: false
-          })
-        });
-
-        Twilio.Device.incoming(function (conn) {
-          console.log('Incoming connection from ' + conn.parameters.From);
-          self.log = 'Incoming connection from ' + conn.parameters.From
-          conn.accept();
-          self.setState({
-            muted: false,
-            onPhone: true
-          })
-        });
 
       }).fail(function(err) {
         console.log(err);
         self.setState({log: 'Could not fetch token, see console.log'});
       });
+
+      // Configure event handlers for Twilio Device
+      Twilio.Device.disconnect(function() {
+        self.setState({
+          onPhone: false,
+          log: 'Call ended.'
+        });
+      });
+
+      Twilio.Device.ready(function() {
+        self.log = 'Connected';
+        console.log('Client Ready for Connections')
+      });
+
+      Twilio.Device.error(function (error) {
+        console.log('Twilio.Device Error: ' + error.message);
+      });
+
+      Twilio.Device.connect(function (conn) {
+        console.log('Successfully established call!');
+        self.setState({
+          muted: false,
+          onPhone: true
+        })
+
+      });
+
+      Twilio.Device.disconnect(function (conn) {
+        console.log('Call ended.');
+        self.setState({
+          muted: false,
+          onPhone: false
+        })
+      });
+
+      Twilio.Device.incoming(function (conn) {
+        console.log('Incoming connection from ' + conn.parameters.From);
+        self.log = 'Incoming connection from ' + conn.parameters.From
+        conn.accept();
+        self.setState({
+          muted: false,
+          onPhone: true
+        })
+      });
+
   },
 
   // Make yourself available
@@ -341,8 +343,7 @@ var AgentApp = React.createClass({
           <div className="callcontrols">
             <CallButton handleOnClick={this.handleToggleCall} disabled={!this.state.onPhone} onPhone={this.state.onPhone}/>
 
-            {/* { this.state.onPhone ? <MuteButton handleOnClick={this.handleToggleMute} muted={this.state.muted} /> : null } */}
-            <MuteButton handleOnClick={this.handleToggleMute} muted={this.state.muted} />
+            { this.state.onPhone ? <MuteButton handleOnClick={this.handleToggleMute} muted={this.state.muted} /> : null }
 
           </div>
         </div>
