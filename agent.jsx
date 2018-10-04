@@ -166,8 +166,6 @@ var AgentApp = React.createClass({
     $.getJSON('https://free-letter-3668.twil.io/agentClientToken')
       .done(function(data) {
         Twilio.Device.setup(data.token);
-
-
       }).fail(function(err) {
         console.log(err);
         self.setState({log: 'Could not fetch token, see console.log'});
@@ -219,7 +217,7 @@ var AgentApp = React.createClass({
 
   },
 
-  // Make yourself available
+  // Set the agent available or not by joining Idle or Offline Acttivities
   handleToggleAvailable() {
     var worker = this.state.worker;
     console.log(worker)
@@ -256,7 +254,7 @@ var AgentApp = React.createClass({
   },
 
 
-  // Accept Reservation
+  // Accept Reservation via dequeue and place call to client.
   handleAcceptReservation() {
         var reservation = this.state.reservation;
         reservation.dequeue(
@@ -299,7 +297,6 @@ var AgentApp = React.createClass({
   // Handle muting
   handleToggleMute() {
     var muted = !this.state.muted;
-
     this.setState({muted: muted});
     Twilio.Device.activeConnection().mute(muted);
   },
