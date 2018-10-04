@@ -255,7 +255,7 @@ var AgentApp = React.createClass({
         });
         this.setState({
           avaliable: false,
-          log: 'Agent Not Available'
+          log: 'Offline. Please Toggle Avaliability'
         })
       }
   },
