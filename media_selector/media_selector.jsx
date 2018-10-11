@@ -39,9 +39,6 @@ class MediaSelector extends React.Component {
   }
 
   handleMediaChange(event) {
-    console.log(event.target);
-    console.log(event.target.name, event.target.value);
-
     var video, audio = false;
     var videoDeviceId = this.state.selectedVideoDevice;
     var audioDeviceId = this.state.selectedAudioDevice;
@@ -81,6 +78,8 @@ class MediaSelector extends React.Component {
           this.setState({previewStream: window.URL.createObjectURL(stream)});
           const videoTracks = stream.getVideoTracks();
           console.log(`Using video device: ${videoTracks[0].label}`);
+          const audioTracks = stream.getAudioTracks();
+          console.log(`Using audio device: ${audioTracks[0].label}`);
         })
         .catch(error => console.error(error))
     }
