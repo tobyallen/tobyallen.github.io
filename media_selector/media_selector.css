@@ -1,0 +1,23 @@
+#selector {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  width: 600px;
+  padding: 10px
+}
+
+#selector video {
+  max-width: 100%;
+}
+
+#selector label {
+  width: 100%;
+  margin: 5px;
+}
+
+#selector label select {
+  width: 100%;
+  height: 35px;
+  font-size: 1.5em;
+}

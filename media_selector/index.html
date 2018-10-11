@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Media Selector</title>
+    <link rel="stylesheet" href="media_selector.css">
+  </head>
+  <body>
+    <h2>A Simple React Based Media Input Selector</h2>
+    <p>Displays list of media devices and allows selection of input.</p>
+    <p> Inspired by
+      <a href="https://medium.com/the-js-guys/making-a-user-media-preview-component-8571d02b69e3">Medium Article</a> by
+      <a href="https://medium.com/@austinkurpuis">@austinkurpuis</a> </p>
+    <!-- Selector goies inside this section. -->
+    <section id="media-selector"></section>
+
+    <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+
+    <!-- Load our React JSX component. -->
+    <script type="text/babel"  src="media_selector.jsx"></script>
+
+  </body>
+</html>
