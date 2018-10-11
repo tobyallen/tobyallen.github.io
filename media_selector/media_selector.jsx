@@ -76,10 +76,6 @@ class MediaSelector extends React.Component {
       navigator.mediaDevices.getUserMedia(constraints)
         .then(stream => {
           this.setState({previewStream: window.URL.createObjectURL(stream)});
-          const videoTracks = stream.getVideoTracks();
-          console.log(`Using video device: ${videoTracks[0].label}`);
-          const audioTracks = stream.getAudioTracks();
-          console.log(`Using audio device: ${audioTracks[0].label}`);
         })
         .catch(error => console.error(error))
     }
