@@ -1,3 +1,8 @@
+// Author Toby Allen 
+// https://twitter.com/tobyallen
+// https://www.linkedin.com/in/tobyallen11/
+// Copyright 2018
+
 class MediaSelector extends React.Component {
   constructor(props) {
     super(props);
